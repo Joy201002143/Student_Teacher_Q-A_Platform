@@ -1,0 +1,36 @@
+﻿@model IEnumerable<StudentTeacherQnA.Models.Question>
+
+<h1>Recent Questions</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Asked By</th>
+            <th>Replies</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var question in Model)
+        {
+            <tr>
+                <td>@question.Title</td>
+                <td>@question.AskedBy?.Name</td> <!-- Nullable check for AskedBy -->
+                <td>@question.Answers.Count</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (Context.Session.GetString("UserId") == null)
+{
+    <h2>Please register or log in to ask a question:</h2>
+    <a asp-controller="Account" asp-action="Register" class="btn btn-primary">Register</a>
+    <a asp-controller="Account" asp-action="Login" class="btn btn-secondary">Login</a>
+}
+else
+{
+    <h2>Welcome back!</h2>
+    <a asp-controller="Question" asp-action="Ask" class="btn btn-primary">Ask a Question</a>
+    <a asp-controller="Question" asp-action="Dashboard" class="btn btn-secondary">My Dashboard</a>
+}

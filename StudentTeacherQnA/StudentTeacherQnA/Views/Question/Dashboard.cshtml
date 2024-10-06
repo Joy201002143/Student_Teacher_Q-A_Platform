@@ -1,0 +1,53 @@
+﻿@model dynamic
+
+<h1>My Dashboard</h1>
+
+<h2>Your Questions</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Replies</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var question in ViewBag.Questions)
+        {
+            <tr>
+                <td>@question.Title</td>
+                <td>@question.Answers.Count</td>
+                <td>
+                    <a asp-controller="Question" asp-action="Edit" asp-route-id="@question.QuestionId">Edit</a>
+                    <span> | </span>
+                    <a asp-controller="Question" asp-action="Delete" asp-route-id="@question.QuestionId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h2>Your Answers</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Question</th>
+            <th>Reply</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var answer in ViewBag.Answers)
+        {
+            <tr>
+                <td>@answer.Question.Title</td>
+                <td>@answer.Content</td>
+                <td>
+                    <a asp-controller="Answer" asp-action="Edit" asp-route-id="@answer.AnswerId">Edit</a>
+                    <span> | </span>
+                    <a asp-controller="Answer" asp-action="Delete" asp-route-id="@answer.AnswerId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,15 @@
+﻿@model StudentTeacherQnA.Models.Question
+
+<h1>Ask a Question</h1>
+
+<form asp-action="Ask" method="post">
+    <div>
+        <label>Title</label>
+        <input type="text" asp-for="Title" required />
+    </div>
+    <div>
+        <label>Content</label>
+        <textarea asp-for="Content" rows="5" required></textarea>
+    </div>
+    <button type="submit">Post Question</button>
+</form>
