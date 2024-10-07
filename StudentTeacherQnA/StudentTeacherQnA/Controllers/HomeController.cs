@@ -1,28 +1,39 @@
-﻿//using Microsoft.AspNetCore.Mvc;
-//using Microsoft.EntityFrameworkCore;
-//using StudentTeacherQnA.Data;
-//using System.Linq;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using StudentTeacherQnA.Data;
+using System.Linq;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using StudentTeacherQnA.Models;
+using StudentTeacherQnA.Entities;
+using System.Diagnostics;
 
-//namespace StudentTeacherQnA.Controllers
-//{
-//    public class HomeController : Controller
-//    {
-//        private readonly AppDbContext _context;
+namespace StudentTeacherQnA.Controllers
+{
+    public class HomeController : Controller
+    {
+        private readonly ILogger<HomeController> _logger;
 
-//        public HomeController(AppDbContext context)
-//        {
-//            _context = context;
-//        }
+        public HomeController(ILogger<HomeController> logger)
+        {
+            _logger = logger;
+        }
 
-//        public IActionResult Index()
-//        {
-//            var questions = _context.Questions
-//                .Include(q => q.AskedBy)
-//                .Include(q => q.Answers)
-//                .OrderByDescending(q => q.CreatedAt)
-//                .ToList();
+        public IActionResult Index()
+        {
+            return View();
+        }
 
-//            return View(questions); // Pass questions to the view
-//        }
-//    }
-//}
+        public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+    }
+}
+
