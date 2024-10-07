@@ -1,36 +1,64 @@
-﻿@model IEnumerable<StudentTeacherQnA.Models.Question>
+﻿@{
+    ViewData["Title"] = "Student-Teacher Q/A Platform";
+}
 
-<h1>Recent Questions</h1>
+<head>
+    <style>
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Asked By</th>
-            <th>Replies</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var question in Model)
-        {
-            <tr>
-                <td>@question.Title</td>
-                <td>@question.AskedBy?.Name</td> <!-- Nullable check for AskedBy -->
-                <td>@question.Answers.Count</td>
-            </tr>
+        section {
+            text-align: center;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-    </tbody>
-</table>
 
-@if (Context.Session.GetString("UserId") == null)
-{
-    <h2>Please register or log in to ask a question:</h2>
-    <a asp-controller="Account" asp-action="Register" class="btn btn-primary">Register</a>
-    <a asp-controller="Account" asp-action="Login" class="btn btn-secondary">Login</a>
-}
-else
-{
-    <h2>Welcome back!</h2>
-    <a asp-controller="Question" asp-action="Ask" class="btn btn-primary">Ask a Question</a>
-    <a asp-controller="Question" asp-action="Dashboard" class="btn btn-secondary">My Dashboard</a>
-}
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+        }
+
+        img {
+            max-width: 350px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h2>Student-Teacher Q/A!</h2>
+        <p>AAsk Question to Your Teacher!.</p>
+        <div class="text-center">
+            <h1>🚀📚</h1>
+        </div>
+        <p>Start Asking Question and Get Answer!</p>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div class=" row d-flex align-items-center justify-content-center ">
+                <div class="col-md-3 card p-3 border-0">
+                    <a class="btn btn-primary btn-sm" asp-area="" asp-controller="Account" asp-action="index">Dashboard</a>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div>
+                <div class=" row d-flex align-items-center justify-content-center ">
+                    <div class="col-md-3 card p-3 border-0">
+                        <a class="btn btn-primary btn-sm" asp-area="" asp-controller="Account" asp-action="index">LogIn</a>
+                    </div>
+                    <div class="col-md-3 card p-3 border-0">
+                        <a class="btn btn-primary btn-sm" asp-area="" asp-controller="Account" asp-action="register">Register!</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </section>
+
+</body>
+
