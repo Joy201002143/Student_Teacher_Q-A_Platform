@@ -4,7 +4,7 @@ using StudentTeacherQnA.Interface;
 
 namespace StudentTeacherQnA.Repository
 {
-    public class QuestionRepository
+
     public class QuestionRepository : IQuestionRepository
     {
         private readonly ApplicationDbContext _context;

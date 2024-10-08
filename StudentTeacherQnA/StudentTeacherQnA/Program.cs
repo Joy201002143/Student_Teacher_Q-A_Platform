@@ -1,10 +1,12 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using StudentTeacherQnA;
-using StudentTeacherQnA.Data;
+//using StudentTeacherQnA.Data;
 using StudentTeacherQnA.Entities;
 using StudentTeacherQnA.Interface;
+using StudentTeacherQnA.InterfaceService;
 using StudentTeacherQnA.Repository;
+using StudentTeacherQnA.Services;
 using System.Security.Claims;
 
 
