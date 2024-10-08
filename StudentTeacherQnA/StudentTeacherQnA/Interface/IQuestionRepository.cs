@@ -2,7 +2,7 @@
 
 namespace StudentTeacherQnA.Interface
 {
-    public class IQuestionRepository
+    public interface IQuestionRepository
     {
         public void CreateQuestion(Question question);
         public Task DeleteQuestionByQuestionIDAsync(int QuestionId);

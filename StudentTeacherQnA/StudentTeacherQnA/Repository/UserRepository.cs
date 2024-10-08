@@ -6,12 +6,12 @@ namespace StudentTeacherQnA.Repository
 {
     public class UserRepository : IUserRepository
     {
-        private readonly ApplicationDbContext _context;
+        private readonly AppDbContext _context;
         private readonly DbSet<ApplicationUser> _users;
         private readonly DbSet<Question> _questions;
         private readonly DbSet<Answer> _answers;
 
-        public UserRepository(ApplicationDbContext context)
+        public UserRepository(AppDbContext context)
         {
             _context = context;
             _users = _context.Set<ApplicationUser>();

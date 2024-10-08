@@ -1,8 +1,8 @@
 ﻿namespace StudentTeacherQnA.Interface
 {
-    public class IUserRepository
+    public interface IUserRepository // Use 'interface' keyword instead of 'class'
     {
-        string? GetUserName(string UserID);
-        public Task<List<(string, string, string)>> GetRespondedQA(string UserID);
+        string? GetUserName(string UserID); // No access modifier, just the method signature
+        Task<List<(string, string, string)>> GetRespondedQA(string UserID); // Same here, no 'public'
     }
 }

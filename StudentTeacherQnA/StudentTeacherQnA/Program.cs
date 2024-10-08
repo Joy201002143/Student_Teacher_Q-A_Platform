@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using StudentTeacherQnA;
-//using StudentTeacherQnA.Data;
 using StudentTeacherQnA.Entities;
 using StudentTeacherQnA.Interface;
 using StudentTeacherQnA.InterfaceService;
@@ -16,7 +15,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 var connectionString = builder.Configuration.GetConnectionString("Default");
-builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
+builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(
     Options =>
@@ -27,7 +26,7 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(
         Options.Password.RequireNonAlphanumeric = false;
         Options.Password.RequiredLength = 6;
     }
-    ).AddRoles<IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
+    ).AddRoles<IdentityRole>().AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
 
 builder.Services.Configure<IdentityOptions>(options => options.ClaimsIdentity.UserIdClaimType = ClaimTypes.NameIdentifier);
 
@@ -88,8 +87,8 @@ using (var scope = app.Services.CreateScope())
 {
     var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
 
-    string adminEmail = "admin@admin.com";
-    string adminPassword = "Admin123";
+    string adminEmail = "joy@admin.com";
+    string adminPassword = "joy123";
 
     if (await userManager.FindByEmailAsync(adminEmail) == null)
     {

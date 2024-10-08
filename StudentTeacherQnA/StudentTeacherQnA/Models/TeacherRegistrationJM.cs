@@ -3,7 +3,7 @@
 namespace StudentTeacherQnA.Models
 {
 	public class TeacherRegistrationJM
-	{
+    {
 		[Required(ErrorMessage = "Name is required")]
 		public string Name { get; set; } // Stores the user's name
 

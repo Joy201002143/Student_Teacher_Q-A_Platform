@@ -7,27 +7,31 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Users\Student\Views\Home\Setting.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Users\Student\Views\Home\Setting.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter" Version="8.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.8">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.5" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGenerators.Mvc" Version="8.0.5" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.8.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Users\Admin\Controllers\" />
-    <Folder Include="Users\Admin\Models\" />
-    <Folder Include="Users\Admin\Views\Home\" />
-    <Folder Include="Users\Moderator\Controller\" />
-    <Folder Include="Users\Moderator\Views\" />
-    <Folder Include="Users\Student\Controller\" />
-    <Folder Include="Users\Student\Views\" />
-    <Folder Include="Users\Teacher\Controller\" />
-    <Folder Include="Users\Teacher\Models\" />
-    <Folder Include="Users\Teacher\Views\" />
+    <Folder Include="Data\" />
   </ItemGroup>
 
 </Project>

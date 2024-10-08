@@ -3,7 +3,7 @@
 
 namespace StudentTeacherQnA.Interface
 {
-    public class IAnswerRepository
+    public interface IAnswerRepository
     {
         public void CreateAnswer(Answer answer);
         public void UpdateAnswer(Answer answer);

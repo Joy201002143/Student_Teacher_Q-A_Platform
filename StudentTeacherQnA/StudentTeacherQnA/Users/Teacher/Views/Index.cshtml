@@ -1,0 +1,62 @@
+﻿@{
+	Layout = "~/Views/Shared/_LayoutForTeacher.cshtml";
+}
+@{
+	ViewData["Title"] = "Teacher-Dashboard";
+}
+
+@model IEnumerable<StudentTeacherQnA.Entities.Question>
+
+<div>
+	<div class="row d-flex align-items-center justify-content-center">
+		<div class="col-md-8 card p-9 border-0">
+			<br />
+			<h2 class="text-align-content-center text-info text-center">Questions pool</h2>
+			<div class="row">
+				<div class="col-md-12">
+					<br />
+					@{
+						int count = Model.Count();
+						int i = count;
+						if (count != 0)
+						{
+							@foreach (var question in Model)
+							{
+								<div class="card p-3 mb-3">
+									<h5 class="text-info">Question: @i </h5>
+									<p>@question.Content</p>
+									<p>Asked by: @question.UserId</p>
+									<div>
+										@if (@question.IsAnswered)
+										{
+											<p>Answered</p>
+											<a href="/Teacher/Home/ShowAnswer/@question.Id" class="btn btn-info btn-primary">Show Answer</a>
+											<a href="/Teacher/Home/QuestionAnswer/@question.Id" class="btn btn-primary">Reply</a>
+										}
+										else
+										{
+											<a href="/Teacher/Home/QuestionAnswer/@question.Id" class="btn btn-primary">Reply</a>
+										}
+									</div>
+								</div>
+								i--;
+							}
+						}
+						else
+						{
+							<div class="col-md-12 card p-2">
+								<br />
+								<p class="text-align content-center text-danger text-center">
+									No question asked yet by you! If you have any question, please ask.
+								</p>
+							</div>
+						}
+
+					}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+

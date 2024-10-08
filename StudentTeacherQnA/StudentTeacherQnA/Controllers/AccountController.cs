@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
-using StudentTeacherQnA.Data;
+
 using StudentTeacherQnA.Models;
 using System.Linq;
 using Microsoft.AspNetCore.Identity;

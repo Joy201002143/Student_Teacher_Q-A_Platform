@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Student-Teacher Q/A Platform";
+    ViewData["Title"] = "Student Teacher Q@A Platform";
 }
 
 <head>
@@ -7,16 +7,16 @@
 
         section {
             text-align: center;
-            max-width: 800px;
+            max-width: 500px;
             margin: 20px auto;
             padding: 20px;
-            background-color: #fff;
+            background-color: #B2BEB5;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         h1 {
-            color: #333;
+            color: ActiveBorder;
         }
 
         p {
@@ -31,14 +31,14 @@
 </head>
 <body>
     <section>
-        <h2>Student-Teacher Q/A!</h2>
-        <p>AAsk Question to Your Teacher!.</p>
+        <h2>Welcome to Student Teacher Q@A Platform</h2>
+        <p>Ask questions, get answers, and engage with your peers and teachers in a collaborative learning environment.</p>
         <div class="text-center">
-            <h1>👩🏻‍🎓👨🏻‍🎓</h1>
+            <h1>🚀📚</h1>
         </div>
-        <p>Start Asking Question and Get Answer!</p>
-        @if (User.Identity.IsAuthenticated)
-        {
+        <p>Get started by asking a question or browsing the questions from your peers.</p>
+        @if(User.Identity.IsAuthenticated)
+		{
             <div class=" row d-flex align-items-center justify-content-center ">
                 <div class="col-md-3 card p-3 border-0">
                     <a class="btn btn-primary btn-sm" asp-area="" asp-controller="Account" asp-action="index">Dashboard</a>

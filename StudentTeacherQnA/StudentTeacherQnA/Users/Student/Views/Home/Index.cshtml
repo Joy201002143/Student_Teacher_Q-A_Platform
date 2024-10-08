@@ -1,0 +1,98 @@
+﻿@{
+	Layout = "~/Views/Shared/_LayoutForStudent.cshtml";
+}
+@{
+	ViewData["Title"] = "Student-Dashboard";
+}
+
+@model IEnumerable<StudentTeacherQnA.Entities.Question>
+
+<div>
+	<div class=" row d-flex align-items-center justify-content-center ">
+		<div class="col-md-9 card p-9 border-0">
+			@if (TempData["Message"] != null)
+			{
+				<div class="col-md-10 alert alert-success notification alert-dismissible fade show" role="alert">
+					<strong>@TempData["Message"]</strong>
+					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>
+			}
+			else if (TempData["ErrorMessage"] != null)
+			{
+				<div class="col-md-10  alert alert-danger notification alert-dismissible fade show" role="alert">
+					<strong>@TempData["ErrorMessage"]</strong>
+					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>
+			}
+			<h2 class="text-align-content-center text-info text-center">Have any question?</h2>
+			<form asp-action="index" asp-controller="Home" asp-area="Student" method="post">
+				<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+				<div class="mb-1">
+					<textarea name="content" rows="2" class="form-control" placeholder="Write your questions here ..." required></textarea>
+					<span asp-validation-for="content" class="text-danger"></span>
+				</div>
+				<div class="row">
+					<div class="col-7">
+						<br />
+						<button type="submit" value="submit" class="btn btn-primary btn-sm float-end ">Ask Question?</button>
+						<br />
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="row d-flex align-items-center justify-content-center">
+		<div class="col-md-8 card p-9 border-0">
+			<br />
+			<h2 class="text-align-content-center text-info text-center">Questions from All Students</h2>
+			<div class="row">
+				<div class="col-md-12">
+					<br />
+					@{
+						int count = Model.Count();
+						int i = count;
+						if (count != 0)
+						{
+							@foreach (var question in Model)
+							{
+								<div class="card p-3 mb-3">
+									<h5 class="text-info">Question: @i </h5>
+									<p>@question.Content</p>
+									<p>Asked by: @question.UserId</p>
+									<div>
+										@if (@question.IsAnswered)
+										{
+											<p>Answered</p>
+											<a href="/Student/Home/ShowAnswer/@question.Id" class="btn btn-info btn-primary">Show Answer</a>
+										}
+										else
+										{
+											<p>Answer: Not Answered Yet</p>
+										}
+									</div>
+								</div>
+								i--;
+							}
+						}
+						else
+						{
+							<div class="col-md-12 card p-2">
+								<br />
+								<p class="text-align content-center text-danger text-center">
+									No question asked yet by you! If you have any question, please ask.
+								</p>
+							</div>
+						}
+
+					}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+@section Scripts {
+	<partial name="_ValidationScriptsPartial" />
+} 

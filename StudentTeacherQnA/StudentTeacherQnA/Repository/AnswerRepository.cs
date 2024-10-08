@@ -6,11 +6,11 @@ namespace StudentTeacherQnA.Repository
 {
     public class AnswerRepository : IAnswerRepository
     {
-        private readonly ApplicationDbContext _context;
+        private readonly AppDbContext _context;
         private DbSet<Answer> _answerTable;
         private DbSet<Question> _questionTable;
 
-        public AnswerRepository(ApplicationDbContext context)
+        public AnswerRepository(AppDbContext context)
         {
             _context = context;
             _answerTable = _context.Set<Answer>();

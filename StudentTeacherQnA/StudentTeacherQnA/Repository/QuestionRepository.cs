@@ -7,10 +7,10 @@ namespace StudentTeacherQnA.Repository
 
     public class QuestionRepository : IQuestionRepository
     {
-        private readonly ApplicationDbContext _context;
+        private readonly AppDbContext _context;
         private DbSet<Question> _table;
 
-        public QuestionRepository(ApplicationDbContext context)
+        public QuestionRepository(AppDbContext context)
         {
             _context = context;
             _table = _context.Set<Question>();
