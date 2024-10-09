@@ -76,7 +76,8 @@ The **Student_Teacher_QnA_Platform** is a web-based application where students a
 
 Below is the ER (Entity Relationship) diagram that explains the structure of the database.
 
-![Database Schema Diagram]([(https://github.com/user-attachments/assets/18d577b6-61f1-4abe-9508-18d0b61a483d]
+![StudentTeacherDB](https://github.com/user-attachments/assets/b800c2ee-ef35-433d-8272-c8830669424f)
+
 
 The database schema consists of several entities with the following relationships:
 - **User and Role**: The `User Roles` table connects users with their roles. A user can have multiple roles (e.g., a person can be both a teacher and a moderator).
